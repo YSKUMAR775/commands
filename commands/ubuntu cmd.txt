@@ -1,0 +1,137 @@
+
+############################# we can connect to instance using this also ##############
+ssh -i kumar23.pem ec2-user@ec2-13-126-114-95.ap-south-1.compute.amazonaws.com
+
+ctrl+l			# to clear the terminal/scmd
+yskumar775		# user
+2323			# password
+pwd			# current working directory
+ls -la			# know files in the pwd
+ls /mnt/		# know storage drives in our computer
+ls /mnt/c		# to mount to c directory
+cd Users/		# changing directory to Users
+ls			# know directories in users
+cd 'Hemanth Y'		# chaning to Hemanth Y directory
+cd Desktop/		# changing to desktop directory
+touch test.txt		# creating text file in desktop
+nano test.txt		# for writing/editing notes/text in that file (ctrl + x and enter y and simply enter)
+cat test.txt		# to know what data that you tipe in that file
+echo hello all > test.txt	# we can create text file and write data in it at a time
+cd			# change directory
+
+nano ~/.bashrc					# switch to windows home folder instead of mounted directory
+alias winhome='cd /mnt/c/Users/'Hemanth Y'/'	# put default directory
+source ~/.bashrc				# to source the file to change effect in that directory
+winhome
+
+~/.bashrc		# permission denied
+sudo su			# goes to root folder
+exit			# exit from sudo su (root user)
+
+
+# we can also install programs using cmd
+sudo apt-get install tree		# to install a package or program
+
+
+
+cd /mnt/c/Users/'Hemanth Y'/Desktop/EC-2
+
+
+
+
+###############	Terminal exit #################
+
+ctrl + l 	-----> goes to first line
+exit		-----> exit ubuntu terminal
+clear		-----> clears cmd data on terminal
+ctrl + c	-----> ecxt the running instance
+
+
+###############	Deleting files #################
+
+rm -rf *		# removes all files/folders of ssh in directory
+rm -rf foldername/	# removes file of that name
+rm myFile*.txt		# removes texts
+
+
+
+############### configuration of PC ###############
+
+sudo apt install net-tools	-----> if we unable to see configuration of my pc
+
+ls -R		----> will list all the files in the sub-directories as well
+ls -a 		----> will show the hidden files
+ls -la 		----> will list the files and directories with detailed information like the permissions, size, owner, etc.
+
+
+################ cp command (copy from one directory to another) #############
+
+cd /mnt/c/Users/'Hemanth Y'/Desktop				----> here Buddha.jpg file in desktop
+cp Buddha.jpg /mnt/c/Users/'Hemanth Y'/Desktop/EC-2		----> copy Buddha.jpg to EC-2 directory
+cp Buddha.jpg Ganesh.jpg /mnt/c/Users/'Hemanth Y'/Desktop/EC-2	----> we can copy selected files to the directory
+cp *.doc /mnt/c/Users/'Hemanth Y'/Desktop/EC-2			----> copy all the document files from desktop to EC-2 directory
+cp * /mnt/c/Users/'Hemanth Y'/Desktop/EC-2			----> copy all the files from desktop to EC-2 directory
+
+
+
+################## mv command (move from one directory to anothr) #############
+
+mv Buddha.jpg /mnt/c/Users/'Hemanth Y'/Desktop/EC-2		----> moves data in desktop
+
+
+
+################ [scp(secure copy) from local to remote server] #############
+ifconfig			----> to know ip address of remote server
+mkdir kumar			----> creating a directory kumar folder
+touch test1.txt			----> creating a file name test1.txt
+touch test23.txt		----> creating another file name test2.txt
+
+### sending files to remote server
+scp								----> gives all the commands of scp
+scp test1.txt ec2-user@13.126.114.95:/home/ec2-user	----> sending file to remote server
+scp -r kumar ec2-user@13.126.114.95:/home/ec2-user	----> sending the folder/directory to remote server
+
+
+scp ec2-user@13.126.114.95:/home/ec2-user/test1.txt /mnt/c/Users/'Hemanth Y'/Desktop	----> copy test.txt from remote to local desktop directory
+
+
+######################### using scp: from local to remote server using instance###########
+
+scp -i kumar23.pem Buddha.jpg ec2-user@ec2-13-126-114-95.ap-south-1.compute.amazonaws.com:/-			----> working in ubuntu
+	#### (or) ####
+scp -i kumar23.pem Buddha.jpg ec2-user@ec2-13-126-114-95.ap-south-1.compute.amazonaws.com:/home/ec2-user	----> working in ubuntu
+
+
+
+################### Update&Upgrades##############
+
+sudo apt-get update		----> updated software list for ubuntu
+sudo apt-get upgrade		----> updates softwares (updats patches and softwares)
+sudo apt-get dist-upgrade	----> install kernal upgrades
+sudo reboot			----> if new kernal installed reboot the server
+sudo apt-get install foo
+
+sudo apt-get install google-chrome-stable			----> installing chrome
+sudo apt-get --only-upgrade install google-chrome-stable	----> updating/upgrading chrome
+
+
+################# creating files #############
+
+touch kumar.txt		----> creates file
+	(or)
+cat >kumar.txt		----> creates file and write data in it (ctrl+c to exyt from file)
+
+################ displays data ################
+
+cat kumar.txt		----> displays the data of kumar.txt
+cat kumar.txt sai.txt	----> we can see data in multiple files at a time
+
+
+
+
+
+install packages
+sudo apt-get update $ sudo apt-get install git ----> install
+git --version git version 2.9.2	----> verify
+sudo dnf install git
+ sudo yum install git

@@ -1,0 +1,12 @@
+cd C:\Users\Hemanth\AppData\Local\Programs\Python\Python39\Scripts
+pip install requests			----> install pip after entering the directory
+pip --version (or) pip -v
+pip help
+python -m pip install --upgrade pip	----> upgrading the pip
+python -m pip install pip==18.0		----> downgrade version
+
+pip install virtualenv			----> install virtual environment for pip virtualenv which will make it possible to create individual environments to test our code in
+pip install virtualenvwrapper-win	----> managing all these environments can become cumbersome. So we use this
+
+packages installing:
+pip install pandas

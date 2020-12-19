@@ -1,0 +1,65 @@
+# Every MySql database consists of series of tables
+# Each table consists of rows and columns
+# Simply a data base in MySql consists of series of tables which stores some information
+
+#### using ubuntu
+sudo apt-get install mysql-server
+sudo service mysql start
+mysql -u root -p
+####
+
+# start MySql server on windows using command prompt for windows.
+"C:\Program Files\MySQL\MySQL Server 8.0\bin\mysqld" --console
+
+	The path in this command is the default installation folder. In case you have installed MySQL in a different folder, the command needs to reflect that to launch the mysqld executable file successfully.
+The --console option displays output directly on your console. Omitting this option sends the output directly to the MySQL logs.
+
+
+# stop MySql server on windows using command prompt for windows.
+ 
+
+	The mysqladmin tool performs the shutdown command and fully stops the MySQL server.
+The system does not provide output as confirmation.
+
+
+# create database using cmd prompt windows.
+
+cd C:\Program Files\MySQL\MySQL Server 8.0\bin  # changing the directory
+
+mysql -u root -p  # here root is default user name
+***********  # enter password
+>Welcome to the MySQL monitor
+
+show databases;  # it shows databases which are present in MySql (bcz MySql consists of series of databases)
+
+show character set;  # character set  #utf8
+
+show collation;  # collation  #  utf8mb4_general_ci
+
+create database userlogin;  # userlogin is the database name i have created
+> query ok
+
+use userlogin;  # to use this database we have to go inside user login
+> database changed
+
+show tables;  # shows how many tables present
+> Empty set  # which means we haven't create a table
+
+
+create table user(id int(11) unsigned auto_increment primary key not null,username varchar(25) not null,password varchar(25) not null,email varchar(40) not null);  # to determine what parameters my table will have (here i only created empty parameters)
+
+show tables;
+
+describe user;
+
+
+## how to insert data in the table that we created with empty parameters
+
+insert into user(username,password,email)
+values('kumar', '123', 'yskumar775@gmail.com');  # use single quotes bcz double quotes won't work in MySql
+
+select * from user;  # here * represents everything 
+
+insert into user(username,password,email) values('navin', '456', 'navin@gmail.com');
+
+

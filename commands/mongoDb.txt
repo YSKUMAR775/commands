@@ -1,0 +1,102 @@
+cd C:\Program Files\MongoDB\Server\4.4\bin
+
+# mongod 	# in c: drive create folder data folder inside create db folder
+
+mongo
+
+# db.dropDatabase()		# for droping the database
+# show dbs
+# use students
+# db.books.insert({"data is in json form"}) 		#  here books is the name of the collection
+
+# show dbs
+# show collections
+
+# db.studentData.insertOne({"name" : "kumar", "mail" : "kumar@gmail.com", "contact" : 68476, "subject": "maths" })
+# db.studentData.insertOne({name: "harry", email: "harry@gmail.com", subject: "maths"})
+# db.studentData.insertOne({name: "anudeep", email: "harry@gmail.com", subject: "maths"})
+
+db.studentData.insertMany([{"name" : "anu", "cnt" : 11}, {address: "bangalore", number: 11}]
+
+# db.studentData.deleteOne({name:"anudeep"})	# deletes json entry of that entire data
+ 
+# db.studentData.updateOne({name: "harry"}, {$set: {contact: 79842}})
+
+# db.studentData.updateMany({subject: "maths"}, {$set: {address: "hyderabad"}})
+
+# db.studentData.deleteMany({subject: "maths"})
+
+# db.studentData.deleteMany({})        # deletes all the data
+
+# db.studentData.find().pretty()  	or 	db.studentData.find()
+
+
+EXAMPLE:
+
+import pymongo
+
+myclient = pymongo.MongoClient("mongodb://localhost:27017/")
+mydb = myclient['mydatabase']
+mycol = mydb['customers']
+
+#
+print(myclient.list_database_names())
+print(mydb.list_collection_names())         # in customers database
+
+#
+collections = mydb.list_collection_names()
+if "customers" in collections:
+    print("yes")
+
+#
+mydict = {"name": "john",
+          "address": "boston",
+          "_id": 1}
+x = mycol.insert_one(mydict)
+print(x)
+print(x.inserted_id)
+
+#
+list_data = [{"name": "ram", "location": "canada", "_id": 2}, {"name": "vinay", "location": "india", "_id": 3}]
+mycol.insert_many(list_data)
+
+#
+for i in mycol.find():
+    print(i)
+
+#
+for i in mycol.find({}, {'_id': 0}):
+    print(i)
+for j in mycol.find({}, {'_id': 1}):
+    print(j)
+
+#
+myquery = {"name": "vinay"}
+mydata = mycol.find(myquery)
+for k in mydata:
+    print(k)
+
+# name greater than 'k':
+myquery = {"name": {"$gt": "k"}}
+mydata = mycol.find(myquery)
+for x in mydata:
+    print(x)
+
+# name starts with letter 'r':
+myquery = {"name": {"$regex": "^r"}}
+mydata = mycol.find(myquery)
+for x in mydata:
+    print(x)
+
+# sorts data by the name
+mydata = mycol.find().sort("name")
+for i in mydata:
+    print(i)
+
+# sorts data by the name by descending
+mydata = mycol.find().sort("name", -1)
+for i in mydata:
+    print(i)
+
+# updating
+db.ebay.updateOne({price: "US $246.96"}, {$set: {price: "US $2500"}})

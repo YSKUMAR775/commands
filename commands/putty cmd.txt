@@ -1,0 +1,29 @@
+git clone paste url(https://github.com/YSKUMAR775/flask.git)
+sudo yum install git
+y
+git clone paste url(https://github.com/YSKUMAR775/flask.git)
+yskumar775@gmail.com 	# git hub username
+S@i30051995		# git hub password
+ls
+# flsk (blue colour name)
+cd flask/ 
+python app.py
+sudo yum install python-pip
+y
+sudo pip install flask
+python app.py
+sudo pip install jwt
+
+python3 app.py
+sudo pip3 install -r requirements.txt
+pip3 install -r requirements.txt
+git pull (fetch and merge) (or) git pull origin (only merge)
+
+# deleting ssh files of git in putty
+rm -rf *		# removes all files/folders of ssh in putty
+rm -rf foldername/	# removes file of that name
+rm myFile*.txt		# removes texts
+
+
+# clean putty using windows command (it don't delete any files)
+python.exe -cleanup
